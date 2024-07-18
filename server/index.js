@@ -7,6 +7,7 @@ const PORT = 8000;
 
 const db = require("./config/mongoose");
 const errorHandler = require("./middlewares/errorHandler.js");
+const seeder = require("./seeders/seeder.js");
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(morgan("dev"));
 
 app.use(errorHandler);
+
+
+seeder();
 
 
 app.listen(PORT,()=>{
